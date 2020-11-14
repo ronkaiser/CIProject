@@ -8,7 +8,7 @@ pipeline {
     }
     stage('ansible') {
       steps {
-        sh 'ansible-playbook -i ./CIProject/inventory ./CIProject/setup.yml'
+        sh 'ansible-playbook -i ./CIProject/ansible/inventory ./CIProject/ansible/setup.yml'
       }
     }
     stage('whats_going_on') {
