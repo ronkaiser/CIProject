@@ -9,6 +9,7 @@
   - name: "Create user accounts"
     user:
       name: "{{ item }}"
+      password: abcd1234
     with_items: "{{ users }}"
   - name: "Add authorized keys"
     authorized_key:
@@ -16,3 +17,11 @@
       key: "{{ lookup('file', 'files/'+ item + '.key.pub') }}"
     with_items: "{{ users }}"
 
+  - name: Ansible create file with content example
+    copy:
+      dest: "/home/{{ item }}/readme_bob.txt"
+      owner={{ item }}
+      group={{ item }}
+      mode=0400
+      content: |
+        For your eyes only
