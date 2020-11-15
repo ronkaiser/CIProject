@@ -3,17 +3,18 @@ pipeline {
   stages {
     stage('preperation') {
       steps {
-        sh 'git clone https://github.com/ronkaiser/CIProject.git'
+        //git clone will be done automatically 
+        echo 'verify the user input file'
       }
     }
     stage('ansible') {
       steps {
-        sh 'ansible-playbook -i ./CIProject/ansible/inventory ./CIProject/ansible/setup.yml'
+        sh 'ansible-playbook -i ./ansible/inventory ./ansible/setup.yml'
       }
     }
     stage('whats_going_on') {
       steps {
-        sh 'python3 ./CIProject/whats_going_on.py > results.json'
+        sh 'python3 ./whats_going_on.py > results.json'
       }
     }
   }
