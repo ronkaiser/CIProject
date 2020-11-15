@@ -1,7 +1,7 @@
 # CIProject
 CI project
 Prestep:
-- assuming that ansible will ssh localhost using jenkins user by generating ssh key
+- assuming that ansible will ssh localhost using jenkins user by generating ssh key and add the user to sudoers file without password
 
 Jenkins setup:
 --------------
