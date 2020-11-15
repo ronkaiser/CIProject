@@ -15,7 +15,7 @@ pipeline {
     }
     stage('whats_going_on') {
       steps {
-        sh 'python3 ./whats_going_on.py > results.json'
+        sh 'python3 ./whats_going_on.py > ~/results.json'
       }
     }
   }
