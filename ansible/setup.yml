@@ -6,4 +6,3 @@
     user:
       name: bob
       state: present
-      password: abcd1234
