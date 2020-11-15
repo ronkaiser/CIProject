@@ -9,7 +9,7 @@ pipeline {
     }
     stage('ansible') {
       steps {
-        sh 'sudo ansible-playbook -i ./inventory ./ansible/setup.yml'
+        sh 'ansible-playbook -i ./ansible/inventory ./ansible/setup.yml'
       }
     }
     stage('whats_going_on') {
