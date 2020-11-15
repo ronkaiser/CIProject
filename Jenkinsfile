@@ -4,7 +4,6 @@ pipeline {
     stage('preperation') {
       steps {
         //git clone will be done automatically 
-        cleanWS()
         echo 'verify the user input file'
       }
     }
