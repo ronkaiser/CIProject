@@ -1,1 +1,2 @@
-localhost	ansible_user=root
+[nodes]
+localhost	ansible_user=jenkins
