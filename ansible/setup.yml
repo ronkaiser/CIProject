@@ -20,9 +20,9 @@
   - name: Ansible create file with content example
     copy:
       dest: "/home/{{ item }}/readme_bob.txt"
-      owner="{{ item }}"
-      group="{{ item }}"
-      mode=0400
+      owner: "{{ item }}"
+      group: "{{ item }}"
+      mode: 0400
       content: |
         For your eyes only
     with_items: "{{ users }}"
