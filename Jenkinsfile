@@ -9,12 +9,12 @@ pipeline {
     }
     stage('ansible') {
       steps {
-        sh 'ansible-playbook -i ./ansible/inventory ./ansible/setup.yml'
+        sh 'ansible-playbook -i ./ansible/setup.yml'
       }
     }
     stage('whats_going_on') {
       steps {
-        sh 'python3 ./whats_going_on.py > /home/results.json'
+        sh 'python3 ./whats_going_on.py > results.json'
       }
     }
   }

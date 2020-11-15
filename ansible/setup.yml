@@ -1,17 +1,8 @@
 ---
-- hosts: "localhost"
-  connection: "local"
-  vars:
-    users:
-    -  "bob"
+- hosts: localhost
   tasks:
-  - name: "Create user accounts"
+  - name: Add user bob
     user:
-      name: "{{ item }}"
-      groups: "admin,www-data"
-    with_items: "{{ users }}"
-  - name: "Add authorized keys"
-    authorized_key:
-      user: "{{ item }}"
-      key: "{{ lookup('file', 'files/'+ item + '.key.pub') }}"
-    with_items: "{{ users }}"
+      name: bob
+      state: present
+
