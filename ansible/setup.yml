@@ -26,6 +26,3 @@
       content: |
         For your eyes only
     with_items: "{{ users }}"
-
-     
-       
