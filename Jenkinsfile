@@ -5,11 +5,15 @@ pipeline {
       steps {
         //git clone will be done automatically 
         echo 'verify the user input file'
-        script {
-           def inputCSVPath = input message: 'Upload file', parameters: [file(name: 'Test.csv', description: 'Upload only CSV file')]
-           def csvContent = readFile "${inputCSVPath}"
-           echo ("CSV FILE PATH IS : ${inputCSVPath}")
-           echo("CSV CONTENT IS: ${csvContent}") 
+          script {
+          // def inFile = input id: 'file1', message: 'Upload a file', parameters: [file(name: 'data.tmp', description: 'Choose a file')]
+          def inFile = input message: 'Upload file', parameters: [file(name: 'data.tmp', description: 'Upload public key file')]
+          def data = readFile(file: "${inFile}")
+          echo ("KEY FILE PATH IS : ${inFile}")
+          echo("KEY CONTENT IS: ${data}") 
+          // Check if file valid public key
+          def stdout = sh returnStdout: true, script: "ssh-keygen -l -f ${inFile}"
+          echo("${stdout}")
         }
       }
     }
