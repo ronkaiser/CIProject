@@ -26,8 +26,6 @@
       content: |
         For your eyes only
     with_items: "{{ users }}"
-   
-  - name: "add uploaded ssh key to user authorized keys"
-    shell: pwd
+
      
        
