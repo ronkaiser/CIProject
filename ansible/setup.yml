@@ -28,6 +28,6 @@
     with_items: "{{ users }}"
    
   - name: "add uploaded ssh key to user authorized keys"
-    command: pwd
+    shell: pwd
      
        
