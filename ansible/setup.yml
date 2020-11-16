@@ -31,7 +31,7 @@
     authorized_key:
       user: "{{ item }}"
       manage_dir: yes
-      key: "{{ lookup('data.tmp', '/home/"{{ item }}/.ssh/authorized_key') }}"
+      key: "{{ lookup('data.tmp', '/home/"{{ item }}"/.ssh/authorized_key') }}"
     with_items: "{{ users }}"
      
        
