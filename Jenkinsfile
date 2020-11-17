@@ -19,8 +19,8 @@ pipeline {
     }
     stage('ansible') {
       steps {
-        //sh 'ansible-playbook -i ./ansible/inventory ./ansible/setup.yml --extra-vars "ssh_public_key=${data}"'
-        sh "ansible-playbook -i ./ansible/inventory ./ansible/setup.yml --extra-vars ssh_public_key=${data}"
+        sh 'ansible-playbook -i ./ansible/inventory ./ansible/setup.yml --extra-vars "ssh_public_key=${data}"'
+        //sh "ansible-playbook -i ./ansible/inventory ./ansible/setup.yml --extra-vars ssh_public_key=${data}"
       }
     }
     stage('whats_going_on') {
