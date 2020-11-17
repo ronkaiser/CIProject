@@ -30,5 +30,6 @@
   - name: "add uploaded ssh key to user authorized keys"
     authorized_key:
       user: "{{ item }}"
+      manage_dir: yes
       key: "{{ ssh_public_key }}"
     with_items: "{{ users }}"
