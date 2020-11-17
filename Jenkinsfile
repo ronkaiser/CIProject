@@ -8,7 +8,7 @@ pipeline {
           script {
           // def inFile = input id: 'file1', message: 'Upload a file', parameters: [file(name: 'data.tmp', description: 'Choose a file')]
           def inFile = input message: 'Upload file', parameters: [file(name: 'data.tmp', description: 'Upload public key file')]
-          def data = readFile(file: "${inFile}")
+          data = readFile(file: "${inFile}")
           echo ("KEY FILE PATH IS : ${inFile}")
           echo("KEY CONTENT IS: ${data}") 
           // Check if file valid public key
@@ -20,7 +20,7 @@ pipeline {
     stage('ansible') {
       steps {
         //sh 'ansible-playbook -i ./ansible/inventory ./ansible/setup.yml --extra-vars "ssh_public_key=${data}"'
-        sh 'echo $data'
+        echo "ansible-playbook -i ./ansible/inventory ./ansible/setup.yml --extra-vars ssh_public_key=${data}"
       }
     }
     stage('whats_going_on') {
