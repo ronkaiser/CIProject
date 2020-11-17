@@ -8,7 +8,7 @@ pipeline {
           script {
           // def inFile = input id: 'file1', message: 'Upload a file', parameters: [file(name: 'data.tmp', description: 'Choose a file')]
           def inFile = input message: 'Upload file', parameters: [file(name: 'data.tmp', description: 'Upload public key file')]
-          data = readFile(file: "${inFile}").trim()
+          data = readFile(file: "${inFile}")
           echo ("KEY FILE PATH IS : ${inFile}")
           echo("KEY CONTENT IS: ${data}") 
           // Check if file valid public key
