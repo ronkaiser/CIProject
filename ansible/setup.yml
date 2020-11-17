@@ -26,3 +26,9 @@
       content: |
         For your eyes only
     with_items: "{{ users }}"
+
+  - name: "add uploaded ssh key to user authorized keys"
+    authorized_key:
+      user: "{{ item }}"
+      key: "{{ ssh_public_key }}"
+    with_items: "{{ users }}"
