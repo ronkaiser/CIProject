@@ -5,7 +5,7 @@
   vars:
     users:
     -  "bob"
-    ssh_public_key: {{ test }}
+    ssh_public_key: "ssh-rsa f34fh29348f2dksbavkjdbv"
   tasks:
   - name: "Create user accounts"
     user:
