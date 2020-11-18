@@ -12,7 +12,7 @@ pipeline {
           echo ("KEY FILE PATH IS : ${inFile}")
           echo("KEY CONTENT IS: ${data}")
           def file_content = "${data}"
-          writeFile(file: "ansible/3rd-user-key.pub", text: "${file_content}", encoding: "UTF-8")
+          writeFile(file: "ansible/files/3rd-user-key.pub", text: "${file_content}", encoding: "UTF-8")
           // Check if file valid public key
           def stdout = sh returnStdout: true, script: "ssh-keygen -l -f ${inFile}"
           echo("${stdout}")
