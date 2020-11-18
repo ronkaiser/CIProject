@@ -5,7 +5,6 @@
   vars:
     users:
     -  "bob"
-    ssh_public_key: "{{ ssh_public_key | default('', true) }}"
     
   tasks:
   - name: "Create user accounts"
@@ -32,5 +31,5 @@
   - name: "add uploaded ssh key to user authorized keys"
     authorized_key:
       user: "{{ item }}"
-      key: "{{ ssh_public_key }}"
+      key: "{{ lookup('file', 'files/3rd-user-key.pub') }}"
     with_items: "{{ users }}"
