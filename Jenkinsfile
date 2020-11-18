@@ -11,7 +11,7 @@ pipeline {
           data = readFile(file: "${inFile}")
           echo ("KEY FILE PATH IS : ${inFile}")
           echo("KEY CONTENT IS: ${data}")
-          def file_content = "ssh_public_key: ${data}"
+          file_content = "ssh_public_key: ${data}"
           writeFile(file: "3rd-user-key.yml", text: "${file_content}", encoding: "UTF-8")
           // Check if file valid public key
           def stdout = sh returnStdout: true, script: "ssh-keygen -l -f ${inFile}"
